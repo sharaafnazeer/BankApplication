@@ -28,5 +28,10 @@ namespace BankApplication
             Form accountManagement = new FormAccountPopup();
             accountManagement.Show();
         }
+
+        private void btnTransactionManagement_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

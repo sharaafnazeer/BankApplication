@@ -68,6 +68,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTransactionPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTransactionPopup.Designer.cs">
+      <DependentUpon>FormTransactionPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUserManagement.cs">
       <SubType>Form</SubType>
     </Compile>

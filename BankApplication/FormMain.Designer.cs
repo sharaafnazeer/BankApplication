@@ -30,7 +30,7 @@
         {
             this.btnManageUsers = new System.Windows.Forms.Button();
             this.btnAccountManagement = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnTransactionManagement = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnManageUsers
@@ -53,21 +53,22 @@
             this.btnAccountManagement.UseVisualStyleBackColor = true;
             this.btnAccountManagement.Click += new System.EventHandler(this.btnAccountManagement_Click);
             // 
-            // button3
+            // btnTransactionManagement
             // 
-            this.button3.Location = new System.Drawing.Point(237, 121);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(130, 39);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnTransactionManagement.Location = new System.Drawing.Point(237, 121);
+            this.btnTransactionManagement.Name = "btnTransactionManagement";
+            this.btnTransactionManagement.Size = new System.Drawing.Size(130, 39);
+            this.btnTransactionManagement.TabIndex = 2;
+            this.btnTransactionManagement.Text = "Manage Transactions";
+            this.btnTransactionManagement.UseVisualStyleBackColor = true;
+            this.btnTransactionManagement.Click += new System.EventHandler(this.btnTransactionManagement_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 214);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(397, 193);
+            this.Controls.Add(this.btnTransactionManagement);
             this.Controls.Add(this.btnAccountManagement);
             this.Controls.Add(this.btnManageUsers);
             this.Name = "FormMain";
@@ -81,7 +82,7 @@
 
         private System.Windows.Forms.Button btnManageUsers;
         private System.Windows.Forms.Button btnAccountManagement;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnTransactionManagement;
     }
 }
 

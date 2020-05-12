@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\AccountClass.cs" />
+    <Compile Include="BLL\TransactionClass.cs" />
     <Compile Include="BLL\UserClass.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
