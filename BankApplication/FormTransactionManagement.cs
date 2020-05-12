@@ -121,9 +121,12 @@ namespace BankApplication
         {
             List<uint> accountList = accountClass.GetAccountIDsByUser(userID);
 
+            cmbAccountIDs.Items.Clear();
+            lbSearchResults.Items.Clear();
             foreach (var account in accountList)
             {
                 cmbAccountIDs.Items.Add(account);
+                cmbSearchAccountIDs.Items.Add(account);
             }
         }
 
@@ -131,7 +134,7 @@ namespace BankApplication
         {
             selectAccount();
             uint accountBalance = accountClass.GetBalance();
-            lblAccountBalance.Text = accountBalance.ToString();
+            lblAccountBalance.Text = String.Format("{0:0,0.00}", accountBalance);
         }
 
         private void selectAccount()
@@ -140,14 +143,37 @@ namespace BankApplication
             accountClass.SelectAccount(accountID);
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textAmount_TextChanged(object sender, EventArgs e)
+        private void btnSearchTrans_Click(object sender, EventArgs e)
         {
+            if (cmbSearchAccountIDs.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please Select Account ID", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                List<uint> transactionsByAccount = transactionClass.GetTransactionsByAccount(
+                    Convert.ToUInt32(cmbSearchAccountIDs.SelectedItem.ToString()));
+                lbSearchResults.Items.Clear();
+                transactionsByAccount.ForEach(trans =>
+                {
+                    lbSearchResults.Items.Add(trans);
+                });
+            }
+        }
 
+        private void lbSearchResults_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            uint transactionID = Convert.ToUInt32(lbSearchResults.SelectedItem.ToString());
+
+            transactionClass.SelectTransaction(transactionID);
+            lblSenderAccountID.Text = transactionClass.GetSendrAcct().ToString();
+            lblReceiverAccountID.Text = transactionClass.GetRecvrAcct().ToString();
+            lblAmount.Text = String.Format("{0:0,0.00}", transactionClass.GetAmount());
         }
     }
 }

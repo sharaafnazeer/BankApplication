@@ -60,7 +60,7 @@ namespace BankApplication
             {
                 selectAccount();
                 uint accountBalance = accountClass.GetBalance();
-                lblAccountBalance.Text = accountBalance.ToString();
+                lblAccountBalance.Text = String.Format("{0:0,0.00}", accountBalance);
             }
             else
             {
@@ -77,7 +77,7 @@ namespace BankApplication
 
                 selectAccount();
                 accountClass.Deposit(amount);
-                lblAccountBalance.Text = accountClass.GetBalance().ToString();
+                lblAccountBalance.Text = String.Format("{0:0,0.00}", accountClass.GetBalance());
 
                 MessageBox.Show("Amount Deposited Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -124,7 +124,7 @@ namespace BankApplication
                     try
                     {
                         accountClass.Withdraw(amount);
-                        lblAccountBalance.Text = accountClass.GetBalance().ToString();
+                        lblAccountBalance.Text = String.Format("{0:0,0.00}", accountClass.GetBalance());
                         MessageBox.Show("Amount Withdrawn Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }

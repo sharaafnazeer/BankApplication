@@ -65,6 +65,24 @@ namespace BusinessLogic.BLL
             transactionAccess.SetRecvr(acctID);
         }
 
+        public List<uint> GetTransactionsByAccount(uint accountID)
+        {
+            List<uint> transactionList = GetTransactions();
+
+            List<uint> finalList = new List<uint>();
+
+            transactionList.ForEach(trans =>
+            {
+                SelectTransaction(trans);
+                if (GetSendrAcct() == accountID)
+                {
+                    finalList.Add(trans);
+                }
+            });
+
+            return finalList;
+        }
+
         public void ProcessAndSave()
         {
             bankDb.ProcessAllTransactions();
