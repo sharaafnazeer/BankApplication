@@ -1,0 +1,9 @@
+D:\proj\BankApplication\BankApplication\bin\Release\BankApplication.exe.config
+D:\proj\BankApplication\BankApplication\obj\Release\BankApplication.FormMain.resources
+D:\proj\BankApplication\BankApplication\obj\Release\BankApplication.FormUserManagement.resources
+D:\proj\BankApplication\BankApplication\obj\Release\BankApplication.Properties.Resources.resources
+D:\proj\BankApplication\BankApplication\obj\Release\BankApplication.csproj.GenerateResource.Cache
+D:\proj\BankApplication\BankApplication\bin\Release\BankApplication.exe
+D:\proj\BankApplication\BankApplication\bin\Release\BankApplication.pdb
+D:\proj\BankApplication\BankApplication\obj\Release\BankApplication.exe
+D:\proj\BankApplication\BankApplication\obj\Release\BankApplication.pdb
