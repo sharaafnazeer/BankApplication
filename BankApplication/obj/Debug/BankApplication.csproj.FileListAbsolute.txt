@@ -15,3 +15,4 @@ D:\proj\BankApplication\BankApplication\bin\Debug\Newtonsoft.Json.dll
 D:\proj\BankApplication\BankApplication\bin\Debug\Newtonsoft.Json.xml
 D:\proj\BankApplication\BankApplication\obj\Debug\BankApplication.FormAccountManagement.resources
 D:\proj\BankApplication\BankApplication\obj\Debug\BankApplication.FormAccountPopup.resources
+D:\proj\BankApplication\BankApplication\obj\Debug\BankApplication.FormTransactionPopup.resources

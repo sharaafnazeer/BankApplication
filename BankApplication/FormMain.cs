@@ -31,7 +31,8 @@ namespace BankApplication
 
         private void btnTransactionManagement_Click(object sender, EventArgs e)
         {
-
+            Form accountTransaction = new FormTransactionPopup();
+            accountTransaction.Show();
         }
     }
 }

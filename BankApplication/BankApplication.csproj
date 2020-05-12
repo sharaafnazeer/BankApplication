@@ -68,6 +68,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTransactionManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTransactionManagement.Designer.cs">
+      <DependentUpon>FormTransactionManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTransactionPopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTransactionManagement.resx">
+      <DependentUpon>FormTransactionManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTransactionPopup.resx">
+      <DependentUpon>FormTransactionPopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUserManagement.resx">
       <DependentUpon>FormUserManagement.cs</DependentUpon>

@@ -7,7 +7,7 @@ using BankDB;
 
 namespace BusinessLogic.BLL
 {
-    class TransactionClass
+    public class TransactionClass
     {
         BankDB.BankDB bankDb = new BankDB.BankDB();
         private TransactionAccessInterface transactionAccess;
@@ -19,47 +19,55 @@ namespace BusinessLogic.BLL
 
         public void SelectTransaction(uint TransactionID)
         {
-            throw new NotImplementedException();
+            transactionAccess.SelectTransaction(TransactionID);
         }
 
         public List<uint> GetTransactions()
         {
-            throw new NotImplementedException();
+            return transactionAccess.GetTransactions();
         }
 
         public uint CreateTransaction()
         {
-            throw new NotImplementedException();
+            uint transationID = transactionAccess.CreateTransaction();
+            bankDb.SaveToDisk();
+            return transationID;
         }
 
         public uint GetAmount()
         {
-            throw new NotImplementedException();
+            return transactionAccess.GetAmount();
         }
 
         public uint GetSendrAcct()
         {
-            throw new NotImplementedException();
+            return transactionAccess.GetSendrAcct();
         }
 
         public uint GetRecvrAcct()
         {
-            throw new NotImplementedException();
+            return transactionAccess.GetRecvrAcct();
         }
 
         public void SetAmount(uint amount)
         {
-            throw new NotImplementedException();
+            transactionAccess.SetAmount(amount);
         }
 
         public void SetSendr(uint acctID)
         {
-            throw new NotImplementedException();
+            transactionAccess.SetSendr(acctID);
         }
 
         public void SetRecvr(uint acctID)
         {
-            throw new NotImplementedException();
+            transactionAccess.SetRecvr(acctID);
+        }
+
+        public void ProcessAndSave()
+        {
+            bankDb.ProcessAllTransactions();
+            bankDb.SaveToDisk();
         }
     }
 }
