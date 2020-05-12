@@ -14,41 +14,46 @@ namespace BankApplication
     public partial class FormTransactionPopup : Form
     {
         private TransactionClass transactionClass;
+        private UserClass userClass;
 
-        public FormTransactionPopup()
+        public FormTransactionPopup(TransactionClass transactionClass)
         {
             InitializeComponent();
-            transactionClass = new TransactionClass();;
+            this.transactionClass = transactionClass;
+            userClass = new UserClass();
         }
 
         private void btnCreateTransaction_Click(object sender, EventArgs e)
         {
-            uint transactionID = transactionClass.CreateTransaction();
-            MessageBox.Show("Transaction Created Successfully \nTransaction ID -> " + transactionID, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            textTransactionID.Text = transactionID.ToString();
 
         }
 
         private void btnManageTransaction_Click(object sender, EventArgs e)
         {
-            string transactionID = textTransactionID.Text;
+            string userID = textUserID.Text;
+            string firstName = "";
+            string lastName = "";
 
-            if (transactionID == "")
+            if (userID == "")
             {
-                MessageBox.Show("Please Enter Transaction ID", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Enter User ID", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                transactionClass.SelectTransaction(Convert.ToUInt32(transactionID));
-                transactionClass.SetSendr(516530833);
-                transactionClass.SetRecvr(924639982);
-                transactionClass.SetAmount(1000);
+                
+                try
+                {
+                    userClass.SelectUser(Convert.ToUInt32(userID));
+                    userClass.GetUserName(out firstName, out lastName);
+                    Form accountTransaction = new FormTransactionManagement(transactionClass, Convert.ToUInt32(userID));
+                    accountTransaction.Show();
+                    Close();
 
-                transactionClass.ProcessAndSave();
-
-
-                Form transactionForm = new FormTransactionManagement(Convert.ToUInt32(transactionID));
-                transactionForm.Show();
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

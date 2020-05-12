@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogic.BLL;
 
 namespace BankApplication
 {
     public partial class FormMain : Form
     {
+        private TransactionClass transactionClass;
+
         public FormMain()
         {
             InitializeComponent();
+            transactionClass = new TransactionClass();
         }
 
         private void btnManageUsers_Click(object sender, EventArgs e)
@@ -31,8 +35,13 @@ namespace BankApplication
 
         private void btnTransactionManagement_Click(object sender, EventArgs e)
         {
-            Form accountTransaction = new FormTransactionPopup();
+            Form accountTransaction = new FormTransactionPopup(transactionClass);
             accountTransaction.Show();
+        }
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            transactionClass.ProcessAndSave();
         }
     }
 }

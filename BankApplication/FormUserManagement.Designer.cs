@@ -43,7 +43,7 @@
             // 
             // btnCreateUser
             // 
-            this.btnCreateUser.Location = new System.Drawing.Point(80, 44);
+            this.btnCreateUser.Location = new System.Drawing.Point(191, 43);
             this.btnCreateUser.Name = "btnCreateUser";
             this.btnCreateUser.Size = new System.Drawing.Size(75, 23);
             this.btnCreateUser.TabIndex = 0;
@@ -80,7 +80,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(77, 24);
+            this.label2.Location = new System.Drawing.Point(182, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 13);
             this.label2.TabIndex = 4;
@@ -141,7 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 357);
+            this.ClientSize = new System.Drawing.Size(482, 287);
             this.Controls.Add(this.btnUpdateUser);
             this.Controls.Add(this.textLastName);
             this.Controls.Add(this.label5);
@@ -154,6 +154,7 @@
             this.Controls.Add(this.btnSearchUser);
             this.Controls.Add(this.btnCreateUser);
             this.Name = "FormUserManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Management";
             this.Load += new System.EventHandler(this.FormUserManagement_Load);
             this.ResumeLayout(false);

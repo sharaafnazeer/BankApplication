@@ -51,6 +51,11 @@ namespace BusinessLogic.BLL
             return accountAccess.GetBalance();
         }
 
+        public bool isBalanceAvailable(uint amount)
+        {
+            return accountAccess.GetBalance() > amount;
+        }
+
         public uint GetOwner()
         {
             return accountAccess.GetOwner();

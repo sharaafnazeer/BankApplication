@@ -11,10 +11,12 @@ namespace BusinessLogic.BLL
     {
         BankDB.BankDB bankDb = new BankDB.BankDB();
         private TransactionAccessInterface transactionAccess;
+        private AccountClass accountClass;
 
         public TransactionClass()
         {
             transactionAccess = bankDb.GetTransactionInterface();
+            accountClass = new AccountClass();
         }
 
         public void SelectTransaction(uint TransactionID)
@@ -30,7 +32,6 @@ namespace BusinessLogic.BLL
         public uint CreateTransaction()
         {
             uint transationID = transactionAccess.CreateTransaction();
-            bankDb.SaveToDisk();
             return transationID;
         }
 

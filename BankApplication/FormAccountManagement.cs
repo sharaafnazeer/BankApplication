@@ -60,7 +60,6 @@ namespace BankApplication
             {
                 selectAccount();
                 uint accountBalance = accountClass.GetBalance();
-
                 lblAccountBalance.Text = accountBalance.ToString();
             }
             else
@@ -120,17 +119,27 @@ namespace BankApplication
 
                 selectAccount();
 
-                try
+                if (accountClass.isBalanceAvailable(amount))
                 {
-                    accountClass.Withdraw(amount);
-                    lblAccountBalance.Text = accountClass.GetBalance().ToString();
-                    MessageBox.Show("Amount Withdrawn Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    try
+                    {
+                        accountClass.Withdraw(amount);
+                        lblAccountBalance.Text = accountClass.GetBalance().ToString();
+                        MessageBox.Show("Amount Withdrawn Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Your Balance Is not Enough to Continue", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
-                catch (Exception exception)
-                {
-                    MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+
+
             }
         }
     }
