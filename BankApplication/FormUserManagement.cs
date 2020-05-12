@@ -49,7 +49,15 @@ namespace BankApplication
             else
             {
                 user.SelectUser(Convert.ToUInt32(userID));
-                user.GetUserName(out firstName, out lastName);
+                try
+                {
+                    user.GetUserName(out firstName, out lastName);
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
 
                 textFirstName.Text = firstName;
                 textLastName.Text = lastName;
@@ -77,8 +85,17 @@ namespace BankApplication
             }
             else
             {
-                user.SetUserName(firstName, lastName);
-                user.GetUserName(out firstName, out lastName);
+
+                try
+                {
+                    user.SetUserName(firstName, lastName);
+                    user.GetUserName(out firstName, out lastName);
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+               
                 MessageBox.Show("Hello! " + firstName + " " + lastName + ". Your User Account is Updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 

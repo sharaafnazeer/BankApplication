@@ -56,6 +56,12 @@
     <Compile Include="FormAccountManagement.Designer.cs">
       <DependentUpon>FormAccountManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAccountPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAccountPopup.Designer.cs">
+      <DependentUpon>FormAccountPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAccountManagement.resx">
+      <DependentUpon>FormAccountManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAccountPopup.resx">
+      <DependentUpon>FormAccountPopup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>

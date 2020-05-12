@@ -13,3 +13,5 @@ D:\proj\BankApplication\BankApplication\bin\Debug\BankDB.dll
 D:\proj\BankApplication\BankApplication\bin\Debug\BusinessLogic.pdb
 D:\proj\BankApplication\BankApplication\bin\Debug\Newtonsoft.Json.dll
 D:\proj\BankApplication\BankApplication\bin\Debug\Newtonsoft.Json.xml
+D:\proj\BankApplication\BankApplication\obj\Debug\BankApplication.FormAccountManagement.resources
+D:\proj\BankApplication\BankApplication\obj\Debug\BankApplication.FormAccountPopup.resources

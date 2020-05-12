@@ -3,3 +3,4 @@ D:\proj\BankApplication\BusinessLogic\bin\Debug\BusinessLogic.pdb
 D:\proj\BankApplication\BusinessLogic\bin\Debug\BankDB.dll
 D:\proj\BankApplication\BusinessLogic\obj\Debug\BusinessLogic.dll
 D:\proj\BankApplication\BusinessLogic\obj\Debug\BusinessLogic.pdb
+D:\proj\BankApplication\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache
