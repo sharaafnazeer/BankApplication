@@ -67,6 +67,7 @@
             this.Controls.Add(this.btnManageTransaction);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textUserID);
+            this.MaximizeBox = false;
             this.Name = "FormTransactionPopup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Checkpoint";

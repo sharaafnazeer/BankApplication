@@ -340,9 +340,10 @@
             this.ClientSize = new System.Drawing.Size(847, 355);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "FormTransactionManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormTransactionManagement";
+            this.Text = "Transaction Management";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormTransactionManagement_FormClosing);
             this.Load += new System.EventHandler(this.FormTransactionManagement_Load);
             this.groupBox1.ResumeLayout(false);

@@ -210,6 +210,7 @@
             this.Controls.Add(this.textAmount);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbAccountIDs);
+            this.MaximizeBox = false;
             this.Name = "FormAccountManagement";
             this.Text = "FormAccountManagement";
             this.Load += new System.EventHandler(this.FormAccountManagement_Load);

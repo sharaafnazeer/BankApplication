@@ -153,6 +153,7 @@
             this.Controls.Add(this.textUserID);
             this.Controls.Add(this.btnSearchUser);
             this.Controls.Add(this.btnCreateUser);
+            this.MaximizeBox = false;
             this.Name = "FormUserManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Management";

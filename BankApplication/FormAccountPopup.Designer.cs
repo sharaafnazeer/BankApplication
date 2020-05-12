@@ -90,6 +90,7 @@
             this.Controls.Add(this.btnCreateAccount);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textUserID);
+            this.MaximizeBox = false;
             this.Name = "FormAccountPopup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Checkpoint";
