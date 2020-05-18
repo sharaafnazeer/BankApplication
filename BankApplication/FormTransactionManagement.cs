@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,23 +8,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BusinessLogic.BLL;
 
 namespace BankApplication
 {
     public partial class FormTransactionManagement : Form
     {
-        private TransactionClass transactionClass;
-        private AccountClass accountClass;
+//        private TransactionClass transactionClass;
+//        private AccountClass accountClass;
         private uint transactionID;
         private uint accountID;
         private uint userID;
 
-        public FormTransactionManagement(TransactionClass transactionClass, uint userID)
+        private BusinessTier.BusinessTier data;
+
+        //        public FormTransactionManagement(TransactionClass transactionClass, uint userID)
+        //        {
+        //            InitializeComponent();
+        //            this.transactionClass = transactionClass;
+        //            this.accountClass = new AccountClass();
+        //            this.userID = userID;
+        //        }
+
+        public FormTransactionManagement(BusinessTier.BusinessTier data, uint userID)
         {
             InitializeComponent();
-            this.transactionClass = transactionClass;
-            this.accountClass = new AccountClass();
+//            this.transactionClass = transactionClass;
+//            this.accountClass = new AccountClass();
+            this.data = data;
             this.userID = userID;
         }
 
@@ -42,13 +53,13 @@ namespace BankApplication
             {
                 if (validateInputs())
                 {
-                    if (accountClass.isBalanceAvailable(Convert.ToUInt32(textAmount.Text)))
+                    if (this.data.isBalanceAvailable(Convert.ToUInt32(textAmount.Text)))
                     {
                         transactionID = Convert.ToUInt32(textTransactionID.Text);
-                        transactionClass.SelectTransaction(transactionID);
-                        transactionClass.SetSendr(Convert.ToUInt32(cmbAccountIDs.SelectedItem.ToString()));
-                        transactionClass.SetRecvr(Convert.ToUInt32(textReceiverAccountID.Text));
-                        transactionClass.SetAmount(Convert.ToUInt32(textAmount.Text));
+                        this.data.SelectTransaction(transactionID);
+                        this.data.SetSendr(Convert.ToUInt32(cmbAccountIDs.SelectedItem.ToString()));
+                        this.data.SetRecvr(Convert.ToUInt32(textReceiverAccountID.Text));
+                        this.data.SetAmount(Convert.ToUInt32(textAmount.Text));
 
                         MessageBox.Show("Amount Transferred Successfully \n\nTransaction ID -> " + transactionID, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -67,7 +78,7 @@ namespace BankApplication
 
         private void btnCreateTransaction_Click(object sender, EventArgs e)
         {
-            uint transactionID = transactionClass.CreateTransaction();
+            uint transactionID = this.data.CreateTransaction();
             MessageBox.Show("Transaction Created Successfully \n\nTransaction ID -> " + transactionID, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             textTransactionID.Text = transactionID.ToString();
 
@@ -99,27 +110,14 @@ namespace BankApplication
             return true;
         }
 
-        private void btnCheckTransaction_Click(object sender, EventArgs e)
-        {
-            if (textTransactionID.Text == "")
-            {
-                MessageBox.Show("Please Enter Transaction ID", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                transactionID = Convert.ToUInt32(textTransactionID.Text);
-                transactionClass.SelectTransaction(transactionID);
-            }
-        }
-
         private void FormTransactionManagement_FormClosing(object sender, FormClosingEventArgs e)
         {
 //            transactionClass.ProcessAndSave();
         }
 
-        private void feedAccountIDs()
+        private async void feedAccountIDs()
         {
-            List<uint> accountList = accountClass.GetAccountIDsByUser(userID);
+            ArrayList accountList = await data.GetAccountIDsByUser(userID);
 
             cmbAccountIDs.Items.Clear();
             lbSearchResults.Items.Clear();
@@ -133,14 +131,14 @@ namespace BankApplication
         private void cmbAccountIDs_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectAccount();
-            uint accountBalance = accountClass.GetBalance();
+            uint accountBalance = this.data.GetBalance();
             lblAccountBalance.Text = String.Format("{0:0,0.00}", accountBalance);
         }
 
         private void selectAccount()
         {
             accountID = Convert.ToUInt32(cmbAccountIDs.SelectedItem.ToString());
-            accountClass.SelectAccount(accountID);
+            this.data.SelectAccount(accountID);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -148,7 +146,7 @@ namespace BankApplication
 
         }
 
-        private void btnSearchTrans_Click(object sender, EventArgs e)
+        private async void btnSearchTrans_Click(object sender, EventArgs e)
         {
             if (cmbSearchAccountIDs.SelectedIndex < 0)
             {
@@ -156,13 +154,14 @@ namespace BankApplication
             }
             else
             {
-                List<uint> transactionsByAccount = transactionClass.GetTransactionsByAccount(
+                ArrayList transactionsByAccount = await data.GetTransactionsByAccount(
                     Convert.ToUInt32(cmbSearchAccountIDs.SelectedItem.ToString()));
                 lbSearchResults.Items.Clear();
-                transactionsByAccount.ForEach(trans =>
+
+                foreach (var trans in transactionsByAccount)
                 {
                     lbSearchResults.Items.Add(trans);
-                });
+                }
             }
         }
 
@@ -170,10 +169,26 @@ namespace BankApplication
         {
             uint transactionID = Convert.ToUInt32(lbSearchResults.SelectedItem.ToString());
 
-            transactionClass.SelectTransaction(transactionID);
-            lblSenderAccountID.Text = transactionClass.GetSendrAcct().ToString();
-            lblReceiverAccountID.Text = transactionClass.GetRecvrAcct().ToString();
-            lblAmount.Text = String.Format("{0:0,0.00}", transactionClass.GetAmount());
+            this.data.SelectTransaction(transactionID);
+            lblSenderAccountID.Text = this.data.GetSendrAcct().ToString();
+            lblReceiverAccountID.Text = this.data.GetRecvrAcct().ToString();
+            lblAmount.Text = String.Format("{0:0,0.00}", this.data.GetAmount());
+        }
+
+        private void textReceiverAccountID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textTransactionID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -1,0 +1,11 @@
+D:\proj\BankApplication\RemotingServiceHost\obj\Debug\RemotingServiceHost.csprojResolveAssemblyReference.cache
+D:\proj\BankApplication\RemotingServiceHost\bin\Debug\RemotingServiceHost.exe.config
+D:\proj\BankApplication\RemotingServiceHost\bin\Debug\RemotingServiceHost.exe
+D:\proj\BankApplication\RemotingServiceHost\bin\Debug\RemotingServiceHost.pdb
+D:\proj\BankApplication\RemotingServiceHost\bin\Debug\DataTier.dll
+D:\proj\BankApplication\RemotingServiceHost\bin\Debug\BankDB.dll
+D:\proj\BankApplication\RemotingServiceHost\bin\Debug\DataTier.pdb
+D:\proj\BankApplication\RemotingServiceHost\obj\Debug\RemotingServiceHost.exe
+D:\proj\BankApplication\RemotingServiceHost\obj\Debug\RemotingServiceHost.pdb
+D:\proj\BankApplication\RemotingServiceHost\bin\Debug\Newtonsoft.Json.dll
+D:\proj\BankApplication\RemotingServiceHost\bin\Debug\Newtonsoft.Json.xml

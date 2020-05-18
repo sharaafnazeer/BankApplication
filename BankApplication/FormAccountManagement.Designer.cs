@@ -72,6 +72,7 @@
             this.textAmount.Name = "textAmount";
             this.textAmount.Size = new System.Drawing.Size(244, 20);
             this.textAmount.TabIndex = 18;
+            this.textAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textAmount_KeyPress);
             // 
             // label6
             // 

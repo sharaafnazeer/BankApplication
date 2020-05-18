@@ -1,0 +1,8 @@
+D:\proj\BankApplication\DataTier\bin\Debug\DataTier.dll
+D:\proj\BankApplication\DataTier\bin\Debug\DataTier.pdb
+D:\proj\BankApplication\DataTier\bin\Debug\BankDB.dll
+D:\proj\BankApplication\DataTier\obj\Debug\DataTier.dll
+D:\proj\BankApplication\DataTier\obj\Debug\DataTier.pdb
+D:\proj\BankApplication\DataTier\obj\Debug\DataTier.csprojResolveAssemblyReference.cache
+D:\proj\BankApplication\DataTier\bin\Debug\Newtonsoft.Json.dll
+D:\proj\BankApplication\DataTier\bin\Debug\Newtonsoft.Json.xml

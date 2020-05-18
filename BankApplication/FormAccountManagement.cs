@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,24 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BusinessLogic.BLL;
 
 namespace BankApplication
 {
     public partial class FormAccountManagement : Form
     {
-        private UserClass user;
-        private AccountClass accountClass;
+        private BusinessTier.BusinessTier data;
         private uint userID;
         private string firstName;
         private string lastName;
         private uint accountID;
 
-        public FormAccountManagement(uint userID)
+        public FormAccountManagement(BusinessTier.BusinessTier data, uint userID)
         {
             InitializeComponent();
-            user = new UserClass();
-            accountClass = new AccountClass();
+            this.data = data;
             this.userID = userID;
         }
 
@@ -33,8 +31,8 @@ namespace BankApplication
             cmbAccountIDs.SelectedIndex = 0;
             lblUserID.Text = userID.ToString();
 
-            user.SelectUser(Convert.ToUInt32(userID));
-            user.GetUserName(out firstName, out lastName);
+            this.data.SelectUser(Convert.ToUInt32(userID));
+            this.data.GetUserName(out firstName, out lastName);
 
 
             lblFirstName.Text = firstName;
@@ -44,9 +42,9 @@ namespace BankApplication
             feedAccountIDs();
 
         }
-        private void feedAccountIDs()
+        private async void feedAccountIDs()
         {
-            List<uint> accountList = accountClass.GetAccountIDsByUser(userID);
+            ArrayList accountList =  await data.GetAccountIDsByUser(userID);
 
             foreach (var account in accountList)
             {
@@ -59,7 +57,7 @@ namespace BankApplication
             if (cmbAccountIDs.SelectedIndex > 0)
             {
                 selectAccount();
-                uint accountBalance = accountClass.GetBalance();
+                uint accountBalance = this.data.GetBalance();
                 lblAccountBalance.Text = String.Format("{0:0,0.00}", accountBalance);
             }
             else
@@ -76,8 +74,8 @@ namespace BankApplication
                 uint amount = Convert.ToUInt32(textAmount.Text);
 
                 selectAccount();
-                accountClass.Deposit(amount);
-                lblAccountBalance.Text = String.Format("{0:0,0.00}", accountClass.GetBalance());
+                this.data.Deposit(amount);
+                lblAccountBalance.Text = String.Format("{0:0,0.00}", this.data.GetBalance());
 
                 MessageBox.Show("Amount Deposited Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -87,7 +85,7 @@ namespace BankApplication
         private void selectAccount()
         {
             accountID = Convert.ToUInt32(cmbAccountIDs.SelectedItem.ToString());
-            accountClass.SelectAccount(accountID);
+            this.data.SelectAccount(accountID);
         }
 
         private bool validateInputs()
@@ -119,12 +117,12 @@ namespace BankApplication
 
                 selectAccount();
 
-                if (accountClass.isBalanceAvailable(amount))
+                if (this.data.isBalanceAvailable(amount))
                 {
                     try
                     {
-                        accountClass.Withdraw(amount);
-                        lblAccountBalance.Text = String.Format("{0:0,0.00}", accountClass.GetBalance());
+                        this.data.Withdraw(amount);
+                        lblAccountBalance.Text = String.Format("{0:0,0.00}", this.data.GetBalance());
                         MessageBox.Show("Amount Withdrawn Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
@@ -140,6 +138,14 @@ namespace BankApplication
                 }
 
 
+            }
+        }
+
+        private void textAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
             }
         }
     }

@@ -7,27 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BusinessLogic.BLL;
 
 namespace BankApplication
 {
     public partial class FormTransactionPopup : Form
     {
-        private TransactionClass transactionClass;
-        private UserClass userClass;
-
-        public FormTransactionPopup(TransactionClass transactionClass)
+        private BusinessTier.BusinessTier data;
+        public FormTransactionPopup(BusinessTier.BusinessTier data)
         {
             InitializeComponent();
-            this.transactionClass = transactionClass;
-            userClass = new UserClass();
-        }
-
-        private void btnCreateTransaction_Click(object sender, EventArgs e)
-        {
+            this.data = data;
 
         }
-
+        
         private void btnManageTransaction_Click(object sender, EventArgs e)
         {
             string userID = textUserID.Text;
@@ -43,9 +35,9 @@ namespace BankApplication
                 
                 try
                 {
-                    userClass.SelectUser(Convert.ToUInt32(userID));
-                    userClass.GetUserName(out firstName, out lastName);
-                    Form accountTransaction = new FormTransactionManagement(transactionClass, Convert.ToUInt32(userID));
+                    this.data.SelectUser(Convert.ToUInt32(userID));
+                    this.data.GetUserName(out firstName, out lastName);
+                    Form accountTransaction = new FormTransactionManagement(this.data, Convert.ToUInt32(userID));
                     accountTransaction.Show();
                     Close();
 
@@ -54,6 +46,19 @@ namespace BankApplication
                 {
                     MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void FormTransactionPopup_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textUserID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
             }
         }
     }

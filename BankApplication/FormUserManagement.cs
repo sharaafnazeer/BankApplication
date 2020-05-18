@@ -13,28 +13,24 @@ namespace BankApplication
 {
     public partial class FormUserManagement : Form
     {
-        private UserClass user;
+        //        private UserClass user;
 
-        public FormUserManagement()
+        private BusinessTier.BusinessTier data;
+
+        public FormUserManagement(BusinessTier.BusinessTier data)
         {
             InitializeComponent();
-            user = new UserClass();
+//            user = new UserClass();
+
+            this.data = data;
+
         }
 
         private void btnCreateUser_Click(object sender, EventArgs e)
         {
-            uint userID = user.CreateUser();
+            uint userID = this.data.CreateUser();
 
             MessageBox.Show("User Created Successfully! \nUser ID => " + userID, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            List<uint> userList = user.GetUsers();
-            string ids = "";
-            foreach (var user in userList)
-            {
-                ids += user.ToString() +", ";
-            }
-
-            MessageBox.Show(ids);
         }
 
         private void btnSearchUser_Click(object sender, EventArgs e)
@@ -48,14 +44,14 @@ namespace BankApplication
             }
             else
             {
-                user.SelectUser(Convert.ToUInt32(userID));
+                this.data.SelectUser(Convert.ToUInt32(userID));
                 try
                 {
-                    user.GetUserName(out firstName, out lastName);
+                    this.data.GetUserName(out firstName, out lastName);
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("User Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 
 
@@ -88,8 +84,8 @@ namespace BankApplication
 
                 try
                 {
-                    user.SetUserName(firstName, lastName);
-                    user.GetUserName(out firstName, out lastName);
+                    this.data.SetUserName(firstName, lastName);
+                    this.data.GetUserName(out firstName, out lastName);
                 }
                 catch (Exception exception)
                 {
@@ -99,6 +95,14 @@ namespace BankApplication
                 MessageBox.Show("Hello! " + firstName + " " + lastName + ". Your User Account is Updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+        }
+
+        private void textUserID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

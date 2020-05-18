@@ -134,6 +134,10 @@
       <Project>{46d923fe-90a8-4ea4-985a-d0d06d8341d4}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BusinessTier\BusinessTier.csproj">
+      <Project>{03d80ad7-6a7e-4286-b479-f54168036ac3}</Project>
+      <Name>BusinessTier</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

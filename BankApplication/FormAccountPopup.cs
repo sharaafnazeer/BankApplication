@@ -7,22 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BusinessLogic.BLL;
 
 namespace BankApplication
 {
     public partial class FormAccountPopup : Form
     {
-        private UserClass user;
-        private AccountClass accountClass;
+        private BusinessTier.BusinessTier data;
         private string firstName = "";
         private string lastName = "";
 
-        public FormAccountPopup()
+        public FormAccountPopup(BusinessTier.BusinessTier data)
         {
             InitializeComponent();
-            user = new UserClass();
-            accountClass = new AccountClass();
+            this.data = data;
         }
 
         private void btnCreateAccount_Click(object sender, EventArgs e)
@@ -45,19 +42,19 @@ namespace BankApplication
             }
             else
             {
-                user.SelectUser(Convert.ToUInt32(userID));
+                this.data.SelectUser(Convert.ToUInt32(userID));
                 try
                 {
-                    user.GetUserName(out firstName, out lastName);
+                    this.data.GetUserName(out firstName, out lastName);
 
                     if (action.Equals("CREATE"))
                     {
-                        accountClass.CreateAccount(Convert.ToUInt32(userID));
+                        this.data.CreateAccount(Convert.ToUInt32(userID));
                         MessageBox.Show("Account Created Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        Form manageAccountForm = new FormAccountManagement(Convert.ToUInt32(userID));
+                        Form manageAccountForm = new FormAccountManagement(this.data, Convert.ToUInt32(userID));
                         manageAccountForm.Show();
                         Close();
                     }
@@ -65,8 +62,21 @@ namespace BankApplication
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("User Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void textUserID_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void textUserID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
             }
         }
     }

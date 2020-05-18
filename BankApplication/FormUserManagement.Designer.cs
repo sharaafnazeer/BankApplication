@@ -67,6 +67,7 @@
             this.textUserID.Name = "textUserID";
             this.textUserID.Size = new System.Drawing.Size(244, 20);
             this.textUserID.TabIndex = 2;
+            this.textUserID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textUserID_KeyPress);
             // 
             // label1
             // 

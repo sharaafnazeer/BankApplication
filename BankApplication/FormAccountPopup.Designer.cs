@@ -50,6 +50,8 @@
             this.textUserID.Name = "textUserID";
             this.textUserID.Size = new System.Drawing.Size(270, 20);
             this.textUserID.TabIndex = 11;
+            this.textUserID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textUserID_KeyDown);
+            this.textUserID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textUserID_KeyPress);
             // 
             // btnCreateAccount
             // 

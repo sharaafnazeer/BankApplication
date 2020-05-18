@@ -35,7 +35,7 @@
             // 
             // btnManageTransaction
             // 
-            this.btnManageTransaction.Location = new System.Drawing.Point(112, 93);
+            this.btnManageTransaction.Location = new System.Drawing.Point(122, 96);
             this.btnManageTransaction.Name = "btnManageTransaction";
             this.btnManageTransaction.Size = new System.Drawing.Size(99, 23);
             this.btnManageTransaction.TabIndex = 19;
@@ -58,19 +58,19 @@
             this.textUserID.Name = "textUserID";
             this.textUserID.Size = new System.Drawing.Size(270, 20);
             this.textUserID.TabIndex = 16;
+            this.textUserID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textUserID_KeyPress);
             // 
             // FormTransactionPopup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(340, 161);
             this.Controls.Add(this.btnManageTransaction);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textUserID);
-            this.MaximizeBox = false;
             this.Name = "FormTransactionPopup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Checkpoint";
+            this.Load += new System.EventHandler(this.FormTransactionPopup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
