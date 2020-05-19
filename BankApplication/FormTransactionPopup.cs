@@ -12,8 +12,8 @@ namespace BankApplication
 {
     public partial class FormTransactionPopup : Form
     {
-        private BusinessTier.BusinessTier data;
-        public FormTransactionPopup(BusinessTier.BusinessTier data)
+        private IBusinessTier.IBusinessTier data;
+        public FormTransactionPopup(IBusinessTier.IBusinessTier data)
         {
             InitializeComponent();
             this.data = data;

@@ -12,11 +12,11 @@ namespace BankApplication
 {
     public partial class FormAccountPopup : Form
     {
-        private BusinessTier.BusinessTier data;
+        private IBusinessTier.IBusinessTier data;
         private string firstName = "";
         private string lastName = "";
 
-        public FormAccountPopup(BusinessTier.BusinessTier data)
+        public FormAccountPopup(IBusinessTier.IBusinessTier data)
         {
             InitializeComponent();
             this.data = data;

@@ -13,13 +13,13 @@ namespace BankApplication
 {
     public partial class FormAccountManagement : Form
     {
-        private BusinessTier.BusinessTier data;
+        private IBusinessTier.IBusinessTier data;
         private uint userID;
         private string firstName;
         private string lastName;
         private uint accountID;
 
-        public FormAccountManagement(BusinessTier.BusinessTier data, uint userID)
+        public FormAccountManagement(IBusinessTier.IBusinessTier data, uint userID)
         {
             InitializeComponent();
             this.data = data;

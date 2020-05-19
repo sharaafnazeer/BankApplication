@@ -12,9 +12,9 @@ namespace BankApplication
 {
     public partial class FormUserManagement : Form
     {
-        private BusinessTier.BusinessTier data;
+        private IBusinessTier.IBusinessTier data;
 
-        public FormUserManagement(BusinessTier.BusinessTier data)
+        public FormUserManagement(IBusinessTier.IBusinessTier data)
         {
             InitializeComponent();
             this.data = data;

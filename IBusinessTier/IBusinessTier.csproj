@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{03D80AD7-6A7E-4286-B479-F54168036AC3}</ProjectGuid>
+    <ProjectGuid>{E34D8205-4AFD-48FD-8423-6586B95B5B8E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BusinessTier</RootNamespace>
-    <AssemblyName>BusinessTier</AssemblyName>
+    <RootNamespace>IBusinessTier</RootNamespace>
+    <AssemblyName>IBusinessTier</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -41,18 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessTier.cs" />
+    <Compile Include="IBusinessTier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataTier\DataTier.csproj">
-      <Project>{4129bf9c-ccbd-418d-8270-5b30bfcc3e59}</Project>
-      <Name>DataTier</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IBusinessTier\IBusinessTier.csproj">
-      <Project>{e34d8205-4afd-48fd-8423-6586b95b5b8e}</Project>
-      <Name>IBusinessTier</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

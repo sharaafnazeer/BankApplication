@@ -1,0 +1,4 @@
+D:\proj\BankApplication\IBusinessTier\bin\Debug\IBusinessTier.dll
+D:\proj\BankApplication\IBusinessTier\bin\Debug\IBusinessTier.pdb
+D:\proj\BankApplication\IBusinessTier\obj\Debug\IBusinessTier.dll
+D:\proj\BankApplication\IBusinessTier\obj\Debug\IBusinessTier.pdb

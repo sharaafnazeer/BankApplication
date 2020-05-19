@@ -134,6 +134,10 @@
       <Project>{03d80ad7-6a7e-4286-b479-f54168036ac3}</Project>
       <Name>BusinessTier</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IBusinessTier\IBusinessTier.csproj">
+      <Project>{e34d8205-4afd-48fd-8423-6586b95b5b8e}</Project>
+      <Name>IBusinessTier</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

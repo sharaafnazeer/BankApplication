@@ -8,3 +8,5 @@ D:\proj\BankApplication\BusinessTier\obj\Debug\BusinessTier.dll
 D:\proj\BankApplication\BusinessTier\obj\Debug\BusinessTier.pdb
 D:\proj\BankApplication\BusinessTier\bin\Debug\Newtonsoft.Json.dll
 D:\proj\BankApplication\BusinessTier\bin\Debug\Newtonsoft.Json.xml
+D:\proj\BankApplication\BusinessTier\bin\Debug\IBusinessTier.dll
+D:\proj\BankApplication\BusinessTier\bin\Debug\IBusinessTier.pdb

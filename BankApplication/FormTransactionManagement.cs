@@ -13,27 +13,15 @@ namespace BankApplication
 {
     public partial class FormTransactionManagement : Form
     {
-//        private TransactionClass transactionClass;
-//        private AccountClass accountClass;
         private uint transactionID;
         private uint accountID;
         private uint userID;
 
-        private BusinessTier.BusinessTier data;
+        private IBusinessTier.IBusinessTier data;
 
-        //        public FormTransactionManagement(TransactionClass transactionClass, uint userID)
-        //        {
-        //            InitializeComponent();
-        //            this.transactionClass = transactionClass;
-        //            this.accountClass = new AccountClass();
-        //            this.userID = userID;
-        //        }
-
-        public FormTransactionManagement(BusinessTier.BusinessTier data, uint userID)
+        public FormTransactionManagement(IBusinessTier.IBusinessTier data, uint userID)
         {
             InitializeComponent();
-//            this.transactionClass = transactionClass;
-//            this.accountClass = new AccountClass();
             this.data = data;
             this.userID = userID;
         }

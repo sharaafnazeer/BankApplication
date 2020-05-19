@@ -8,7 +8,7 @@ using DataTier;
 
 namespace BusinessTier
 {
-    public class BusinessTier
+    public class BusinessTier : IBusinessTier.IBusinessTier
     {
         private DataTier.DataTier data;
         public BusinessTier()

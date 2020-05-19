@@ -12,7 +12,7 @@ namespace BankApplication
 {
     public partial class FormMain : Form
     {
-        private BusinessTier.BusinessTier data;
+        private IBusinessTier.IBusinessTier data;
 
         public FormMain()
         {
