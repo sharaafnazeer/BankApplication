@@ -12,14 +12,11 @@ namespace BankApplication
 {
     public partial class FormMain : Form
     {
-//        private TransactionClass transactionClass;
-
         private BusinessTier.BusinessTier data;
 
         public FormMain()
         {
             InitializeComponent();
-            //            transactionClass = new TransactionClass();
 
             data = new BusinessTier.BusinessTier();
         }

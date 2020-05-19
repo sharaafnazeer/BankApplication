@@ -13,15 +13,11 @@ namespace BankApplication
 {
     public partial class FormUserManagement : Form
     {
-        //        private UserClass user;
-
         private BusinessTier.BusinessTier data;
 
         public FormUserManagement(BusinessTier.BusinessTier data)
         {
             InitializeComponent();
-//            user = new UserClass();
-
             this.data = data;
 
         }
@@ -29,6 +25,8 @@ namespace BankApplication
         private void btnCreateUser_Click(object sender, EventArgs e)
         {
             uint userID = this.data.CreateUser();
+
+            textUserID.Text = userID.ToString();
 
             MessageBox.Show("User Created Successfully! \nUser ID => " + userID, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -86,13 +84,15 @@ namespace BankApplication
                 {
                     this.data.SetUserName(firstName, lastName);
                     this.data.GetUserName(out firstName, out lastName);
+
+                    MessageBox.Show("Hello! " + firstName + " " + lastName + ". Your User Account is Updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("User Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                
-                MessageBox.Show("Hello! " + firstName + " " + lastName + ". Your User Account is Updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
             }
 
         }
