@@ -1,10 +1,8 @@
 D:\proj\BankApplication\BankApplication\bin\Debug\BankApplication.exe.config
 D:\proj\BankApplication\BankApplication\bin\Debug\BankApplication.exe
 D:\proj\BankApplication\BankApplication\bin\Debug\BankApplication.pdb
-D:\proj\BankApplication\BankApplication\bin\Debug\BusinessLogic.dll
 D:\proj\BankApplication\BankApplication\bin\Debug\Newtonsoft.Json.dll
 D:\proj\BankApplication\BankApplication\bin\Debug\BankDB.dll
-D:\proj\BankApplication\BankApplication\bin\Debug\BusinessLogic.pdb
 D:\proj\BankApplication\BankApplication\bin\Debug\Newtonsoft.Json.xml
 D:\proj\BankApplication\BankApplication\obj\Debug\BankApplication.csprojResolveAssemblyReference.cache
 D:\proj\BankApplication\BankApplication\obj\Debug\BankApplication.FormAccountManagement.resources
